@@ -44,13 +44,13 @@ const Work = () => {
                                 <p><span className='font-bold'>Technologies:</span> {item.tech}</p>
                                 <div className='flex gap-1'>
                                     <div className="card-actions">
-                                        <a href={item.live}><button className="btn bg-white text-black btn-xs">Live</button></a>
+                                        <a href={item.live}><button className="btn text-white bg-[#0a192f] border-2 hover:bg-pink-600 hover:border-pink-600 btn-xs">Live</button></a>
                                     </div>
                                     <div className="card-actions">
-                                        <a href={item.client}><button className="btn bg-white text-black btn-xs">Client</button></a>
+                                        <a href={item.client}><button className="btn text-white bg-[#0a192f] border-2 hover:bg-pink-600 hover:border-pink-600 btn-xs">Client</button></a>
                                     </div>
                                     <div className="card-actions">
-                                        <a href={item.server}><button className="btn bg-white text-black btn-xs">Server</button></a>
+                                        <a href={item.server}><button className="btn text-white bg-[#0a192f] border-2 hover:bg-pink-600 hover:border-pink-600 btn-xs">Server</button></a>
                                     </div>
                                 </div>
                             </div>
