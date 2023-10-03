@@ -1,73 +1,35 @@
 import React from 'react';
-
-import HTML from '../assets/html.png';
-import CSS from '../assets/css.png';
-import JavaScript from '../assets/javascript.png';
-import ReactImg from '../assets/react.png';
-import Node from '../assets/node.png';
-import Express from '../assets/express.png';
-import FireBase from '../assets/firebase.png';
-import GitHub from '../assets/github.png';
-import Tailwind from '../assets/tailwind.png';
-import Bootstrap from '../assets/bootstrap.png';
-import Mongo from '../assets/mongo.png';
-
+import 'aos/dist/aos.css';
+import AOS from 'aos';
+import { useEffect } from "react";
+import { skills } from '../data/skills';
 
 const Skills = () => {
+
+    useEffect(() => {
+        AOS.init({
+            duration: 2000, // Animation duration in milliseconds
+            offset: 200, // Offset (in pixels) from the element's position when animation starts
+            easing: 'ease-in-out', // Easing function for the animation
+            once: false, // Whether to only animate elements once or on every scroll
+        });
+    }, []);
+
     return (
         <div name='skills' className='w-full py-40 lg:py-24 bg-[#0a192f] text-gray-300'>
-            {/* Container */}
             <div className='max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full'>
                 <div>
                     <p className='text-4xl font-bold inline border-b-4 border-pink-600 '>Skills</p>
                     <p className='py-4'>// These are the technologies I've worked with</p>
                 </div>
 
-                <div className='w-full grid grid-cols-2 sm:grid-cols-4 gap-4 text-center py-8'>
-                    <div className='shadow-md shadow-[#040c16] hover:scale-110 duration-500'>
-                        <img className='w-20 mx-auto' src={HTML} alt="HTML icon" />
-                        <p className='my-4'>HTML</p>
-                    </div>
-                    <div className='shadow-md shadow-[#040c16] hover:scale-110 duration-500'>
-                        <img className='w-20 mx-auto' src={CSS} alt="HTML icon" />
-                        <p className='my-4'>CSS</p>
-                    </div>
-                    <div className='shadow-md shadow-[#040c16] hover:scale-110 duration-500'>
-                        <img className='w-20 mx-auto' src={JavaScript} alt="HTML icon" />
-                        <p className='my-4'>JAVASCRIPT</p>
-                    </div>
-                    <div className='shadow-md shadow-[#040c16] hover:scale-110 duration-500'>
-                        <img className='w-20 mx-auto' src={ReactImg} alt="HTML icon" />
-                        <p className='my-4'>REACT</p>
-                    </div>
-                    <div className='shadow-md shadow-[#040c16] hover:scale-110 duration-500'>
-                        <img className='w-20 mx-auto' src={GitHub} alt="HTML icon" />
-                        <p className='my-4'>GITHUB</p>
-                    </div>
-                    <div className='shadow-md shadow-[#040c16] hover:scale-110 duration-500'>
-                        <img className='w-20 mx-auto' src={Node} alt="HTML icon" />
-                        <p className='my-4'>NODE JS</p>
-                    </div>
-                    <div className='shadow-md shadow-[#040c16] hover:scale-110 duration-500'>
-                        <img className='w-20 mx-auto' src={Express} alt="HTML icon" />
-                        <p className='my-4'>Express JS</p>
-                    </div>
-                    <div className='shadow-md shadow-[#040c16] hover:scale-110 duration-500'>
-                        <img className='w-20 mx-auto' src={Mongo} alt="HTML icon" />
-                        <p className='my-4'>MONGO DB</p>
-                    </div>
-                    <div className='shadow-md shadow-[#040c16] hover:scale-110 duration-500'>
-                        <img className='w-20 mx-auto' src={Tailwind} alt="HTML icon" />
-                        <p className='my-4'>TAILWIND</p>
-                    </div>
-                    <div className='shadow-md shadow-[#040c16] hover:scale-110 duration-500'>
-                        <img className='w-20 mx-auto' src={Bootstrap} alt="HTML icon" />
-                        <p className='my-4'>BOOTSTRAP</p>
-                    </div>
-                    <div className='shadow-md shadow-[#040c16] hover:scale-110 duration-500'>
-                        <img className='w-20 mx-auto' src={FireBase} alt="HTML icon" />
-                        <p className='my-4'>FIREBASE</p>
-                    </div>
+                <div data-aos="zoom-in" className='w-full grid grid-cols-2 sm:grid-cols-4 gap-4 text-center py-8'>
+                    {skills.map((skill, index) => (
+                        <div key={index} className='shadow-md shadow-[#040c16] hover:scale-110 duration-500'>
+                            <img className='w-20 mx-auto' src={skill.icon} alt={`${skill.label} icon`} />
+                            <p className='my-4'>{skill.label}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
